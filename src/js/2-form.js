@@ -14,9 +14,9 @@ function onSubmit(evt) {
   if (email.value === '' || message.value === '') {
     alert('Fill please all fields');
   } else {
-    formData.email = email.value;
-    formData.message = message.value;
     console.log(formData);
+    formData.email = '';
+    formData.message = '';
     localStorage.removeItem(LS_KEY);
     form.reset();
   }
@@ -35,8 +35,8 @@ function savedForm() {
   if (!savedData) {
     return;
   }
-//   formData.email = savedData.email;
-//   formData.message = savedData.message;
+  formData.email = savedData.email;
+  formData.message = savedData.message;
   formEl.elements.email.value = savedData.email;
   formEl.elements.message.value = savedData.message;
 }
